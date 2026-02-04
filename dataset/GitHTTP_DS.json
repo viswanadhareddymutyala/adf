@@ -1,0 +1,39 @@
+{
+	"name": "GitHTTP_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "GitHTTP_LS",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"BaseURL": {
+					"value": "@dataset().SourceBaseURL",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"SourceBaseURL": {
+				"type": "string"
+			},
+			"SourceRelativeURL": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "@dataset().SourceRelativeURL",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
