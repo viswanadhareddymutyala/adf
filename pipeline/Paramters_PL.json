@@ -49,7 +49,17 @@
 				"inputs": [
 					{
 						"referenceName": "GitHTTP_DS",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"SourceBaseURL": {
+								"value": "@pipeline().parameters.SourceBaseURL",
+								"type": "Expression"
+							},
+							"SourceRelativeURL": {
+								"value": "@pipeline().parameters.SourceRelativeURL",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
@@ -60,6 +70,14 @@
 				]
 			}
 		],
+		"parameters": {
+			"SourceBaseURL": {
+				"type": "string"
+			},
+			"SourceRelativeURL": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
